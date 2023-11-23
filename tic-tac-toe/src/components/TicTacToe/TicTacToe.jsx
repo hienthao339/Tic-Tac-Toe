@@ -9,16 +9,6 @@ export const TicTacToe = () => {
   let [count, setCount] = useState(0);
   let [lock, setLock] = useState(false);
   let title = useRef(null);
-  let box0,
-    box1,
-    box2,
-    box3,
-    box4,
-    box5,
-    box6,
-    box7,
-    box8 = useRef(null);
-  let arrayBox = [box0, box1, box2, box3, box4, box5, box6, box7, box8];
 
   const toggle = (e, num) => {
     if (lock) {
@@ -28,6 +18,7 @@ export const TicTacToe = () => {
       e.target.innerHTML = `<img src='${cross}'>`;
       data[num] = "x";
       setCount(++count);
+      checkWin();
     } else {
       e.target.innerHTML = `<img src='${circle}'>`;
       data[num] = "o";
@@ -66,12 +57,7 @@ export const TicTacToe = () => {
   };
 
   const reset = () => {
-    setLock(false);
-    data = ["", "", "", "", "", "", "", "", ""];
-    title.current.innerHTML = "";
-    arrayBox.map((e) => {
-      e.current.innerHTML = "";
-    });
+    window.location.reload();
   };
 
   return (
@@ -93,21 +79,18 @@ export const TicTacToe = () => {
             onClick={(e) => {
               toggle(e, 0);
             }}
-            ref={box0}
           ></div>
           <div
             className="box"
             onClick={(e) => {
               toggle(e, 1);
             }}
-            ref={box1}
           ></div>
           <div
             className="box"
             onClick={(e) => {
               toggle(e, 2);
             }}
-            ref={box2}
           ></div>
         </div>
         <div className="row-2">
@@ -116,21 +99,18 @@ export const TicTacToe = () => {
             onClick={(e) => {
               toggle(e, 3);
             }}
-            ref={box3}
           ></div>
           <div
             className="box"
             onClick={(e) => {
               toggle(e, 4);
             }}
-            ref={box4}
           ></div>
           <div
             className="box"
             onClick={(e) => {
               toggle(e, 5);
             }}
-            ref={box5}
           ></div>
         </div>
         <div className="row-3">
@@ -139,21 +119,18 @@ export const TicTacToe = () => {
             onClick={(e) => {
               toggle(e, 6);
             }}
-            ref={box6}
           ></div>
           <div
             className="box"
             onClick={(e) => {
               toggle(e, 7);
             }}
-            ref={box7}
           ></div>
           <div
             className="box"
             onClick={(e) => {
               toggle(e, 8);
             }}
-            ref={box8}
           ></div>
         </div>
       </div>
