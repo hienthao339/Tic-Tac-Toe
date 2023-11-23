@@ -1,9 +1,12 @@
 import './App.css'
+import { TicTacToe } from './components/TicTacToe/TicTacToe'
 
 function App() {
 
   return (
-    <h1 className="text-blue-600">Hello World</h1>
+    <div className='antialiased h-screen text-center bg-green-950'>
+        <TicTacToe/>
+    </div>
   )
 }
 
